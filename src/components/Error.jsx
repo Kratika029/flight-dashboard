@@ -12,6 +12,9 @@ const   Error = ({flightId, gridSize}) => {
   const [error, setError] = useState(null);
   const [selectedRoute, setSelectedRoute] = useState(null);
   const [weather, setWeather] = useState([]);
+  const [showBestRoute, setShowBestRoute] = useState(false);
+  const [showWeather, setShowWeather] = useState(false);
+  const [showSigmet, setShowSigmet] = useState(false);
     // const[sigmets, setSigmets] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +29,7 @@ const   Error = ({flightId, gridSize}) => {
               
                 "flightid": flightId || "ASA538",
                 "grid_size" : gridSize || 7
-                // "flightid":i{flightId}
+                
             } // Add any required data for the POST request
           ),
         });
@@ -50,6 +53,18 @@ const   Error = ({flightId, gridSize}) => {
 
     fetchData();
   }, []);
+
+  const handleToggleBestRoute = () => {
+    setShowBestRoute(!showBestRoute);
+  };
+
+  const handleToggleWeather = () => {
+    setShowWeather(!showWeather);
+  };
+
+  const handleToggleSigmet = () => {
+    setShowSigmet(!showSigmet);
+  };
   const getColorByProbability = (probability) => {
     return probability === 0 ? 'green' : probability < 0.4 ? 'grey' :   probability < 0.8 ? 'orange' : 'red';
   };
@@ -67,7 +82,55 @@ const   Error = ({flightId, gridSize}) => {
   }
 
   return (
+    <div>
+      <div className="toggle-container">
+        <div style={{display : "flex", flexDirection : "row", alignItems :"center", columnGap : "8px"}}>
+      <p>Show Best Route:</p>
+          <label class="switch">
+            
+            <input
+              type="checkbox"
+              checked={showBestRoute}
+              onChange={handleToggleBestRoute}
+            />
+            <span class="slider round"></span>
+          </label>
+          </div>
+
+          <div style={{display : "flex", flexDirection : "row", alignItems :"center", columnGap : "8px"}}>
+          <p>Show Weather:</p>
+          <label class="switch">
+            
+            <input
+              type="checkbox"
+              checked={showWeather}
+              onChange={handleToggleWeather}
+            />
+            <span class="slider round"></span>
+          </label>
+          </div>
+
+
+
+          {/* <div style={{display : "flex", flexDirection : "row", alignItems :"center", columnGap : "8px"}}>
+          <p>Show SIGMET:</p>
+          <label>
+           
+            <input class="switch"
+              type="checkbox"
+              checked={showSigmet}
+              onChange={handleToggleSigmet}
+            />
+            <span class="slider round"></span>
+          </label>
+          </div> */}
+
+
+
+
+        </div>
     <div className="dashboard">
+
         <div className="column patches">
         {selectedRoute ? (
           <div>
@@ -82,7 +145,7 @@ const   Error = ({flightId, gridSize}) => {
             
           </div>
     
-    <MapContainer center={endPoints} zoom={8} style={{ height: "100vh", width: "100%" }}>
+    <MapContainer center={endPoints} zoom={8} style={{ height: "100vh", width: "100%" , margin : "10px"}}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -97,19 +160,39 @@ const   Error = ({flightId, gridSize}) => {
               Flight End Position: {endPoints[0]}, {endPoints[1]}
             </Popup>
           </Marker>
-      {routes.map((route, index) => (
-        <Polyline key={index} positions={route.coordinates} 
+
+          {showBestRoute ? (
+  routes
+    .filter(route => route.rating === 0)
+    .map((route, index) => (
+      <Polyline
+        key={index}
+        positions={route.coordinates}
         color={getColorByProbability(route.rating)}
         eventHandlers={{
-            click: () => handlePolylineClick(route),
-          }}>
-          {/* <Popup>{route.description}</Popup> */}
-         
-        </Polyline>
-      ))}
+          click: () => handlePolylineClick(route),
+        }}
+      >
+        <Popup>{route.description}</Popup>
+      </Polyline>
+    ))
+) : (
+  routes.map((route, index) => (
+    <Polyline
+      key={index}
+      positions={route.coordinates}
+      color={getColorByProbability(route.rating)}
+      eventHandlers={{
+        click: () => handlePolylineClick(route),
+      }}
+    >
+      {/* <Popup>{route.description}</Popup> */}
+    </Polyline>
+  ))
+)}
 
 
-{weather.map((coord, index) => (
+{showWeather && weather.map((coord, index) => (
         <Circle
           key={index}
           center={[coord[0], coord[1]]}
@@ -124,6 +207,7 @@ const   Error = ({flightId, gridSize}) => {
 
 {/* <Polygon positions={sigmets.coords[0]} color="blue" /> */}
     </MapContainer>
+    </div>
     </div>
   );
 };
