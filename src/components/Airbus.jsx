@@ -24,14 +24,14 @@ function Airbus() {
 </a>
     </div>
     <div className="nav">
-        <ul className="nav-ul">
+        {/* <ul className="nav-ul">
             <li className="nav-li">
                 <a>About Us</a>
             </li>
             <li className="nav-li">
                 <a>Description</a>
             </li>
-        </ul>
+        </ul> */}
         <div className = "search">
         <input
           type="text"

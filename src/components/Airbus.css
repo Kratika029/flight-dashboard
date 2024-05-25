@@ -69,7 +69,12 @@ input[type="text"] {
     font-size: 1em;
     outline: none;
   }
-  
+  .search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 8px;
+  }
   button {
       height : 30px;
     padding: 2px 8px;
