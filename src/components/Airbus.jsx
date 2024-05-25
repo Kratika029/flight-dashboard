@@ -89,14 +89,14 @@ useEffect(()=>{
     </div> */}
 
 <div className="container">
-      <form id="flight-form">
+      <form id="flight-form" style= {{width : "700px"}}>
         <label htmlFor="flight-id">Flight ID:</label>
         <input type="text" id="flight-id" name="flight-id"
         onChange={(e) => setFlightId(e.target.value)}
         required />
         
         <label htmlFor="grid-size">Grid Size:</label>
-        <input 
+        {/* <input 
           type="range" 
           id="grid-size" 
           name="grid-size" 
@@ -104,7 +104,17 @@ useEffect(()=>{
           max="10" 
           value={sliderValue} 
           onChange={handleSliderChange} 
-        />
+        /> */}
+        <Slider
+                value={sliderValue}
+                onChange={handleSliderChange}
+                aria-label="Small steps"
+                valueLabelDisplay="auto"
+                step={1}
+                marks
+                min={4}
+                max={10}
+              />
         <span id="grid-size-label">{sliderValue}</span>
         <div>
         <button onClick={handleButtonClick} type="submit">Analyze</button>
