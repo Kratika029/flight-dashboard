@@ -39,6 +39,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  margin-Top : 80px;
   animation: fadeInUp 1s;
 }
 
@@ -103,4 +104,91 @@ h2 {
   to {
     opacity: 1;
   }
+}
+
+
+/* .flight-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.flight-id-input {
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.slider {
+  width: 200px;
+  margin-bottom: 20px;
+} */
+
+/* .submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+} */
+
+
+
+/* ********************************************** */
+.flight-search-box{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.flight-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 30px;
+  /* align-items: center; */
+}
+
+.flight-id-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #07070709;
+  border-radius: 5px;
+}
+
+.slider-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.slider-title {
+  margin-bottom: 5px;
+}
+
+.slider {
+  width: 100%;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
 }

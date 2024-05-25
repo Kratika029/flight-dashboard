@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Polyline, Popup, Marker, Circle,  Polygon } fr
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Newdash.css'
-const   Error = ({flightId}) => {
+const   Error = ({flightId, gridSize}) => {
   const [routes, setRoutes] = useState([]);
   const [endPoints, setEndPoints] = useState([]);
   const [startPoints, setStartPoints] = useState([]);
@@ -24,7 +24,8 @@ const   Error = ({flightId}) => {
           body: JSON.stringify(
             {
               
-                "flightid": flightId || "ASA538"
+                "flightid": flightId || "ASA538",
+                "grid_size" : gridSize || 7
                 // "flightid":i{flightId}
             } // Add any required data for the POST request
           ),
@@ -78,12 +79,7 @@ const   Error = ({flightId}) => {
         ) : (
           <p>Select a route to see details</p>
         )}
-            {/* <h3>Patches and Descriptions</h3>
-            <ul>
-              <li>Patch 1: Description 1</li>
-              <li>Patch 2: Description 2</li>
-              <li>Patch 3: Description 3</li>
-            </ul> */}
+            
           </div>
     
     <MapContainer center={endPoints} zoom={8} style={{ height: "100vh", width: "100%" }}>
