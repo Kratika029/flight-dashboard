@@ -24,7 +24,7 @@ const   Error = ({flightId}) => {
           body: JSON.stringify(
             {
               
-                "flightid": flightId || "IGO2706"
+                "flightid": flightId || "ASA538"
                 // "flightid":i{flightId}
             } // Add any required data for the POST request
           ),
@@ -54,6 +54,7 @@ const   Error = ({flightId}) => {
   };
 
   const handlePolylineClick = (route) => {
+
     setSelectedRoute(route);
   };
   if (loading) {
@@ -71,7 +72,7 @@ const   Error = ({flightId}) => {
           <div>
             <h2>Route Details</h2>
             <p>{selectedRoute.description}</p>
-            <p>{selectedRoute.rating}</p>
+            <p>Path Hinderance (between 0 and 1): {selectedRoute.rating}</p>
             {/* <p><strong>Path:</strong> {selectedRoute.map(point => `(${point[1]}, ${point[0]})`).join(' -> ')}</p> */}
           </div>
         ) : (
