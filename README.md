@@ -26,3 +26,11 @@ npm install
 ```bash
 npm start
 ```
+
+## Future Improvements
+- Add more filters to the search
+- Add more information about the data ingested
+- Add more animations
+- Add more tests
+- Add more error handling
+- Show more information about the aeroplane routes
