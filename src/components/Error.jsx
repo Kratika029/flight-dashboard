@@ -23,8 +23,9 @@ const   Error = ({flightId}) => {
           },
           body: JSON.stringify(
             {
-                "flightid":"IAD819"
-                // "flightid":{flightId}
+              
+                "flightid": flightId || "IGO2706"
+                // "flightid":i{flightId}
             } // Add any required data for the POST request
           ),
         });
