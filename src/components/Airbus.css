@@ -90,3 +90,11 @@ input[type="text"] {
   button:hover {
     background: #00a387;
   }
+
+  .banner-area{
+    width : 100%;
+  }
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
