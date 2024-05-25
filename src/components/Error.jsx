@@ -188,7 +188,7 @@ const   Error = ({flightId, gridSize}) => {
       <Polyline
         key={index}
         positions={route.coordinates}
-        weight={10 ** (1-route.rating)}
+        weight={10 ** (1-route.rating) + 1.5}
         color={getColorByProbability(route.rating)}
         eventHandlers={{
           click: () => handlePolylineClick(route),
@@ -202,7 +202,7 @@ const   Error = ({flightId, gridSize}) => {
     <Polyline
       key={index}
       positions={route.coordinates}
-      weight={10 ** (1-route.rating)}
+      weight={10 ** (1-route.rating) + 1.5}
       color={getColorByProbability(route.rating)}
       eventHandlers={{
         click: () => handlePolylineClick(route),
