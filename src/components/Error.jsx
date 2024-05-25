@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Polyline, Popup, Marker, Circle,  Polygon } from 'react-leaflet';
+import Loader from "./loader";
 // import { MapContainer, TileLayer, Marker, Polyline, Popup, Circle } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -74,7 +75,26 @@ const   Error = ({flightId, gridSize}) => {
     setSelectedRoute(route);
   };
   if (loading) {
-    return <div>Loading...</div>;
+    return(
+      <div style={{display : "flex", flexDirection : "column", marginTop: "200px", justifyContent : "center"}}>
+<div
+    style={{
+      display : "flex", flexDirection : "column",
+        width: "100px",
+        // height : "500px",
+        margin: "auto",
+    }}
+>
+    <Loader />
+    
+    
+</div>
+<div style={{display : "flex", width: "700px",
+       margin: "auto", justifyContent : "center"}}>
+    <p >Plotting the Perfect Path... A Storm-Free Express! </p>
+    </div>
+      </div>
+     )
   }
 
   if (error) {
