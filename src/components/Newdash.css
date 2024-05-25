@@ -1,0 +1,106 @@
+/* src/App.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  /* background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); */
+  /* color: #fff; */
+}
+
+.page {
+  text-align: center;
+  padding: 50px 20px;
+}
+/* .header{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 500px;
+} */
+/* h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  animation: fadeInDown 1s;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s;
+} */
+
+
+
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  animation: fadeInUp 1s;
+}
+
+.column {
+  /* flex: 1; */
+  margin: 10px;
+  padding: 20px;
+  /* background: rgba(255, 255, 255, 0.1); */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+.map{
+    width : 70%;
+    height : 700px;
+}
+.patches{
+    width : 20%;
+}
+.patches ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.patches li {
+  margin: 10px 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.pie-chart {
+  margin: 20px 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
