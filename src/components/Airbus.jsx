@@ -106,8 +106,10 @@ useEffect(()=>{
           onChange={handleSliderChange} 
         />
         <span id="grid-size-label">{sliderValue}</span>
+        <div>
+        <button onClick={handleButtonClick} type="submit">Analyze</button>
+        </div>
         
-        <button onClick={handleButtonClick} type="submit">Submit</button>
       </form>
     </div>
 
