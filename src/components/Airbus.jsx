@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import "./Airbus.css"
 import logo from "../sentinels.png"
-import Newdash from "./Newdash.jsx"
+// import Newdash from "./Newdash.jsx"
 import Error from "./Error.jsx"
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
@@ -87,25 +87,17 @@ useEffect(()=>{
         <button onClick={handleButtonClick} className="submit-button">Submit</button>
       </div>
     </div> */}
-
-<div className="container">
-      <form id="flight-form" style= {{width : "700px"}}>
-        <label htmlFor="flight-id">Flight ID:</label>
+<div className="container" style={{display : "flex", flexDirection : "row", justifyContent :"center", alignItems : "center"}}>
+  <form id="flight-form" >
+    <div className="form-ele" style={{display : "flex", flexDirection : "row", justifyContent :"center", alignItems : "center", columnGap : "10px"}}>
+    <label style= {{width : "100px"}} htmlFor="flight-id">Flight ID:</label>
         <input type="text" id="flight-id" name="flight-id"
         onChange={(e) => setFlightId(e.target.value)}
         required />
-        
-        <label htmlFor="grid-size">Grid Size:</label>
-        {/* <input 
-          type="range" 
-          id="grid-size" 
-          name="grid-size" 
-          min="4" 
-          max="10" 
-          value={sliderValue} 
-          onChange={handleSliderChange} 
-        /> */}
-        <Slider
+    </div>
+    <div className="form-ele" style={{display : "flex", flexDirection : "row" , justifyContent :"center", alignItems : "center"}}>
+    <label style= {{width : "350px"}} htmlFor="grid-size">Grid Size:</label>
+    <Slider
                 value={sliderValue}
                 onChange={handleSliderChange}
                 aria-label="Small steps"
@@ -116,12 +108,13 @@ useEffect(()=>{
                 max={10}
               />
         <span id="grid-size-label">{sliderValue}</span>
-        <div>
-        <button onClick={handleButtonClick} type="submit">Analyze</button>
-        </div>
-        
-      </form>
     </div>
+    <div className="form-ele">
+    <button onClick={handleButtonClick} type="submit">Analyze</button>
+    </div>
+  </form>
+</div>
+
 
         
 
