@@ -45,7 +45,7 @@ function Airbus() {
     </div>
 </div>
     </div>
-    {showDashboard ? <Error/> : 
+    {showDashboard ? <Error flightId={flightId}/> : 
     <div style={{textAlign : "center"}}>
         <img src ={banner}/>
         <h2>Please Enter Flight ID</h2>

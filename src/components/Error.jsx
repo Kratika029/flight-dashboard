@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Polyline, Popup, Marker, Circle,  Polygon } fr
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Newdash.css'
-const   Error = () => {
+const   Error = ({flightId}) => {
   const [routes, setRoutes] = useState([]);
   const [endPoints, setEndPoints] = useState([]);
   const [startPoints, setStartPoints] = useState([]);
@@ -23,7 +23,8 @@ const   Error = () => {
           },
           body: JSON.stringify(
             {
-                "flightid":"SIA422"
+                "flightid":"IAD819"
+                // "flightid":{flightId}
             } // Add any required data for the POST request
           ),
         });
